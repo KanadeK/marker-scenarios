@@ -1,0 +1,13 @@
+[project]
+name = "marker-demo"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = [
+  "typing-extensions>=4; python_version < '3.12'",
+  "pywin32>=306; sys_platform == 'win32'",
+  "platformdirs>=4",
+]
+
+[project.optional-dependencies]
+docs = ["sphinx>=7"]
+speed = ["uvloop>=0.19; sys_platform != 'win32'"]

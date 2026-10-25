@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "environments": {
+    "linux311": {
+      "implementation_name": "cpython",
+      "implementation_version": "3.11.9",
+      "os_name": "posix",
+      "platform_machine": "x86_64",
+      "platform_release": "6.1.0",
+      "platform_system": "Linux",
+      "platform_version": "fixture",
+      "python_full_version": "3.11.9",
+      "platform_python_implementation": "CPython",
+      "python_version": "3.11",
+      "sys_platform": "linux"
+    },
+    "windows313": {
+      "implementation_name": "cpython",
+      "implementation_version": "3.13.1",
+      "os_name": "nt",
+      "platform_machine": "AMD64",
+      "platform_release": "11",
+      "platform_system": "Windows",
+      "platform_version": "fixture",
+      "python_full_version": "3.13.1",
+      "platform_python_implementation": "CPython",
+      "python_version": "3.13",
+      "sys_platform": "win32"
+    }
+  },
+  "scenarios": [
+    {"name": "linux-base", "environment": "linux311", "extras": [],
+     "exact": ["platformdirs", "typing-extensions"]},
+    {"name": "windows-docs", "environment": "windows313", "extras": ["docs", "speed"],
+     "exact": ["platformdirs", "pywin32", "sphinx"], "absent": ["uvloop"]},
+    {"name": "linux-speed", "environment": "linux311", "extras": ["speed"],
+     "exact": ["platformdirs", "typing-extensions", "uvloop"]}
+  ]
+}

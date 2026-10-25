@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marker-scenarios"
+version = "0.1.0"
+description = "Test Python dependency activation across explicit environments and extras"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "KanadeK"}]
+dependencies = ["packaging==25.0"]
+classifiers = ["Programming Language :: Python :: 3", "Operating System :: OS Independent"]
+
+[project.urls]
+Repository = "https://github.com/KanadeK/marker-scenarios"
+Issues = "https://github.com/KanadeK/marker-scenarios/issues"
+
+[project.scripts]
+marker-scenarios = "marker_scenarios.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "ruff==0.14.2", "build==1.3.0", "setuptools==80.9.0", "wheel==0.45.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
